@@ -12,4 +12,4 @@ Export-EntraGroupReport - #  THIS IS SET UP TO USE CERTIFICATE BASED AUTH  # Sim
                           corresponding worksheet. Each worksheet has a Title in cell "A1" that links back to the overview worksheet. 
 
 
-Add-FFSupportToWindowsAdminCenter - This updates a javascript file in the Windows Admin Center install path that the WAC developers do not see the need to update. This has been an issue for years and they refuse to fix it from everything I have seen. Since the file names in that folder are seemingly randomly generated, this solution goes the extra step to dynamically find the necessary file and "fix" it.
+Add-FFSupportToWindowsAdminCenter - This updates a javascript file and style sheet in the Windows Admin Center install path that the WAC developers do not see the need to update. This has been an issue for years and they refuse to fix it from everything I have seen. Since the file names in that folder are seemingly randomly generated, this solution goes the extra step to dynamically find the necessary file and "fix" it.
