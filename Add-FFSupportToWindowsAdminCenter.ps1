@@ -1,18 +1,27 @@
 #Force support for Firefox in Windows Admin Center
 
-#Find all the javascript files
-foreach($file in (get-item -path $env:ProgramData\WindowsAdminCenter\UX\*.js))
+#Find all the javascript files to fix the origin reference
+foreach($file in (get-childitem -path $env:ProgramData\WindowsAdminCenter\UX\* -Include "*.js","*.css"))
 {
     $content = Get-content $file
 
-    #find the one containing the bad reference 
-    if($content -ilike "*window.location.ancestorOrigins*")
+    switch($content)
     {
-        #replace with the more acceptable reference
-        $newcontent = $content.Replace("window.location.ancestorOrigins", "window.location.origin")
-
-        #save it!
-        Set-Content -Path $file.FullName -Value $newContent -Force
+        #find the one containing the bad reference
+        {$PSItem -ilike "*window.location.ancestorOrigins*"} 
+            {
+                #replace with the more acceptable reference
+                $newcontent = $content.Replace("window.location.ancestorOrigins", "window.location.origin") 
+                Set-Content -Path $file.FullName -Value $newContent -Force
+            }
+        #fix a small but annoying stylesheet issue
+        {$PSItem -ilike "*.sme-layout-float-left{float:left}*"}
+            {
+                $newcontent = $content.Replace(".sme-layout-float-left{float:left}", "") 
+                Set-Content -Path $file.FullName -Value $newContent -Force
+            }
+            default{Continue}
     }
+
     clear-variable content
 }
