@@ -10,3 +10,6 @@ Export-EntraGroupReport - #  THIS IS SET UP TO USE CERTIFICATE BASED AUTH  # Sim
                           Exports all groups using the MgGraph and ImportExcel modules. Creates a separate worksheet for each group containing a table of the 
                           members. Creates a worksheet containing all of the basic group overview and each groups display name links to the 
                           corresponding worksheet. Each worksheet has a Title in cell "A1" that links back to the overview worksheet. 
+
+
+Add-FFSupportToWindowsAdminCenter - This updates a javascript file in the Windows Admin Center install path that the WAC developers do not see the need to update. This has been an issue for years and they refuse to fix it from everything I have seen. Since the file names in that folder are seemingly randomly generated, this solution goes the extra step to dynamically find the necessary file and fix it.
