@@ -1,4 +1,4 @@
-Below is a shortoverview of each script contained in this repository:
+Below is a short overview of each script contained in this repository:
 
 Send-MagicPacket - This script builds a magic packet for a specific MAC Address to be used when Wake-on-LAN is enabled on the targeted device. 
 
