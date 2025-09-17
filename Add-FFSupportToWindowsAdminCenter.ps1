@@ -1,4 +1,5 @@
-#Force support for Firefox in Windows Admin Center
+#Force support for Firefox in previous Windows Admin Center versions
+    #This is supposedly corrected in the latest GA release
 
 #Find all the javascript files to fix the origin reference
 foreach($file in (get-childitem -path $env:ProgramData\WindowsAdminCenter\UX\* -Include "*.js","*.css"))
